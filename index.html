@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+
+    <title>Redirecting...</title>
+</head>
+<body>
+    <h1>Redirecting you to your browser...</h1>
+    <script>
+        // Replace with the actual URL you want to redirect to
+        const targetURL = "https://www.tiktok.com/@f.dave24?_t=8pFZgscl6K9&_r=1";
+        if (navigator.userAgent.includes('Instagram') || navigator.userAgent.includes('TikTok')) {
+            // Attempt to open in default browser
+            window.location.href = `googlechrome://${targetURL.replace('https://', '')}`;
+        } else {
+            window.location.href = targetURL;
+        }
+        // Detect the user’s device
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // Redirect Logic
+        if (isIOS) {
+            // iOS: Use a universal link to open Safari
+            window.location.href = targetURL;
+        } else {
+            // Android: Use intent to open Chrome or default browser
+            window.location.href = `intent://${targetURL}#Intent;scheme=https;package=com.android.chrome;end`;
+        }
+        if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then(() => {
+            console.log('Service Worker Registered');
+        });
+    }
+    </script>
+</body>
+</html>
