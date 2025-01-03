@@ -14,12 +14,12 @@
     <script>
         // Replace with the actual URL you want to redirect to
         const targetURL = "https://www.tiktok.com/@f.dave24?_t=8pFZgscl6K9&_r=1";
-        if (navigator.userAgent.includes('Instagram') || navigator.userAgent.includes('TikTok')) {
-            // Attempt to open in default browser
-            window.location.href = `googlechrome://${targetURL.replace('https://', '')}`;
-        } else {
-            window.location.href = targetURL;
-        }
+        // if (navigator.userAgent.includes('Instagram') || navigator.userAgent.includes('TikTok')) {
+        //     // Attempt to open in default browser
+        //     window.location.href = `googlechrome://${targetURL.replace('https://', '')}`;
+        // } else {
+        //     window.location.href = targetURL;
+        // }
         // Detect the user’s device
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
